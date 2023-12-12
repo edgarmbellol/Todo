@@ -1,0 +1,31 @@
+.cont-task{
+    background-color: aqua;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+span{
+    width: 20%;
+}
+p{
+    width: 60%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    flex: 1; /* Toma el espacio restante */
+    text-align: center;
+}
+.icon-task{
+    width: 2vw;
+    height: 2vw;
+    flex: 0 0 auto;
+}
+.delete{
+    width: 2vw;
+    height: 2vw;
+    flex: 0 0 auto;
+    text-align: right;
+    align-items: end;
+}

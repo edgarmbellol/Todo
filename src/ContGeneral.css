@@ -1,0 +1,11 @@
+.ContGeneral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(fondo.png);
+    background-size: cover;
+    background-position: center;
+    padding: 2vh;
+    width: 100vw;
+    height: 100vh;
+}

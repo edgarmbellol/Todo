@@ -1,0 +1,51 @@
+.divCreateTask{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2%;
+    border-radius: 25px;
+    color: #2e2c60;
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.divCreateTask p{
+    font-family: 'Raleway';
+}
+.title{
+    font-size: 4vw;
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+.sub-title{
+    font-size: 5.3vw;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-bottom: 3vh;
+}
+.divCreateTask input{
+    width: 98%;
+    border: 1px solid #8177bb;
+    font-family: 'Roboto';
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 3vh;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+}
+.divCreateTask button{
+    width: 100%;
+    background-color: #d2d9ff;
+    border: 0px solid #8177bb;
+    font-family: 'Roboto';
+    text-align: center;
+    border-radius: 10px;
+    color: #2e2c60;
+    margin-bottom: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.divCreateTask button:active {
+    background-color: #7985ca;
+    color: white;
+}

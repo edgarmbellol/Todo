@@ -1,0 +1,32 @@
+.cont-search{
+    display: flex;
+    justify-content: center;
+
+}
+.search{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: white;
+    padding-left: 1vw;
+    border: 0px solid #8177bb;
+    border-start-start-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: start;
+    width: 30%;
+}
+.button-search{
+    padding: 0.4vw;
+    width: 20%;
+    background-color: white;
+    border: 0px solid white;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    justify-content: end;
+}
+.iconLupa{
+    width: 1.5vw;
+    height: 1.5vw;
+    background-image: url('./lupa.svg');
+    background-size: cover;
+    display: inline-block;
+}
