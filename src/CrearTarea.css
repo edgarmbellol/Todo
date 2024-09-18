@@ -1,0 +1,45 @@
+.contenedor-crear-tarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 80%;
+}
+.contenedor-tarea{
+    display: flex;
+    flex-direction: column;
+}
+.contenedor-crear-tarea span{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.contenedor-crear-tarea input{
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 5%;
+    color: #6c51ac;
+    opacity: 0.5;
+}
+.contenedor-crear-tarea button{
+    width: 40%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(to left, #6c51ac,#90a2df);
+    color: white;
+    font-weight: bold;
+}
+.contenedor-imagen{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 30px;
+}
+.contenedor-imagen img{
+    width: 70%;
+    height: auto;     
+}

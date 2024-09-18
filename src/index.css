@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top, #E8EDF2, #B8DEF4);
+  color: #1E1E1F;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 60px;
+}

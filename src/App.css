@@ -1,0 +1,31 @@
+.contenedor-tarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.377);
+    border-radius: 20px;
+}
+.contenedor-tarea h1{
+    color: #7B65A1;
+    font-size: 50px;
+}
+.contenedor-pendientes{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-pendientes h1{
+    font-size: 50px;
+    color:#4387C7;
+    margin: 0;
+}
+
+
+
+
