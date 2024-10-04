@@ -17,6 +17,18 @@ const defaultTodos = [
 ];
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);   
+  const completeTodos = todos.filter(todo => todo.completed).length;
+  const totalTodos = todos.length
+
+  // Tomar el valor escrito en el todosearch
+  const [valorBuscado,setValorBuscado] = React.useState('');
+
+  // Filtra el valor en los Todo disponibles
+  const mostrarTodos = todos.filter(todo => 
+    todo.text.toLocaleLowerCase().includes(valorBuscado));
+  
+  console.log(mostrarTodos);
   return (
     <>
       {/* Contenedor que tiene la opcion de crear tareas */}
@@ -27,14 +39,22 @@ function App() {
       {/* Contenedor que tiene la visualizacion de tareas */}
       <div className='contenedor-pendientes'>
           <h1>Tus Tareas</h1>
-          <TodoCounter></TodoCounter>
-          <TodoSearch></TodoSearch>
+          <TodoCounter
+            completed={completeTodos}
+            total={totalTodos}
+          ></TodoCounter>
+          <TodoSearch
+          valorBuscado={valorBuscado}
+          setValorBuscado={setValorBuscado}
+          ></TodoSearch>
           <TodoList>
-          {defaultTodos.map(todo => (
+          {mostrarTodos.map(todo => (
           <TodoItem
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
+            todos={todos}
+            setTodos={setTodos}
           />
           ))}
       </TodoList>

@@ -1,8 +1,7 @@
 import React from 'react';
 import './TodoSearch.css';
 
-function TodoSearch() {
-  const [valorBuscado,setValorBuscado] = React.useState('');
+function TodoSearch({valorBuscado,setValorBuscado}) {
 
   return (
     <input
