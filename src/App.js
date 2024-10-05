@@ -27,14 +27,53 @@ function App() {
   // Filtra el valor en los Todo disponibles
   const mostrarTodos = todos.filter(todo => 
     todo.text.toLocaleLowerCase().includes(valorBuscado));
-  
-  console.log(mostrarTodos);
+
+  // Funciones para completar y eliminar tareas
+  const completeTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
+
+  const createTask = (text) => {
+    if (text == ''){
+      console.log('Tarea Vacia')
+      return
+    }
+    const newTodos = [...todos];
+    // Buscar si hay alguna tarea con el mismo nombre
+    const repeat = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+
+    if (repeat != -1){
+      // Si entra quiere decir que ya hay una tarea con este nombre
+      console.log('Ya existe una tarea con este nombre')
+      return
+    }
+    newTodos.push({text: text,completed: false});
+    setTodos(newTodos);
+  };
   return (
     <>
       {/* Contenedor que tiene la opcion de crear tareas */}
       <div className='contenedor-tarea'>
           <h1>Crear una tarea</h1>
-          <CrearTarea></CrearTarea>
+          <CrearTarea
+          onCreateTask={createTask}
+          ></CrearTarea>
       </div>
       {/* Contenedor que tiene la visualizacion de tareas */}
       <div className='contenedor-pendientes'>
@@ -53,8 +92,8 @@ function App() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            todos={todos}
-            setTodos={setTodos}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
           ))}
       </TodoList>
