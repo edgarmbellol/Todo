@@ -9,15 +9,42 @@ import { CrearTarea } from './CrearTarea';
 import './App.css';
 
 
-const defaultTodos = [
-  { text: 'Cortar cebolla', completed: true },
-  { text: 'Tomar el Curso de Intro a React.js', completed: false },
-  { text: 'Llorar con la Llorona', completed: false },
-  { text: 'LALALALALA', completed: false },
-];
+// const defaultTodos = [
+//   { text: 'Cortar cebolla', completed: true },
+//   { text: 'Tomar el Curso de Intro a React.js', completed: false },
+//   { text: 'Llorar con la Llorona', completed: false },
+//   { text: 'LALALALALA', completed: false },
+// ];
+
+// localStorage.setItem('TODOS_V1',defaultTodos);
+// localStorage.removeItem('TODOS_V1');
+
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+
+  let parsedItem;
+  
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);   
+
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1',[]);   
   const completeTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length
 
@@ -35,7 +62,7 @@ function App() {
       (todo) => todo.text == text
     );
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const deleteTodo = (text) => {
@@ -44,7 +71,7 @@ function App() {
       (todo) => todo.text == text
     );
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const createTask = (text) => {
@@ -64,7 +91,7 @@ function App() {
       return
     }
     newTodos.push({text: text,completed: false});
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
   return (
     <>
@@ -98,20 +125,6 @@ function App() {
           ))}
       </TodoList>
       </div>
-      {/* <TodoCounter completed={16} total={25} />
-      <TodoSearch />
-
-      <TodoList>
-        {defaultTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-      </TodoList>
-      
-      <CreateTodoButton /> */}
     </>
   );
 }
